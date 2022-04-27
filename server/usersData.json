@@ -1,0 +1,17 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "satoru",
+            "timeStamp": [
+                {
+                    "date": "2022/4/26",
+                    "timeBegin": "10:00",
+                    "timeEnd": "18:00",
+                    "restTime": "1:00",
+                    "workTime": "7:00"
+                }
+            ]
+        }
+    ]
+}

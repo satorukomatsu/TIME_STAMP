@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>打刻アプリ</title>
+    <style>
+        .time {
+            display: flex;
+            margin: 0.5em;
+        }
+
+        .time div {
+            padding: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>勤怠管理</h1>
+    <p id="current_date"></p>
+    <p id="current_time"></p>
+    <button id="beginBt">出勤</button>
+    <button id="endBt">退勤</button>
+
+    <div class="time">
+        <div id="date">
+            <p>日付</p>
+        </div>
+        <div id="begin">
+            <p>出勤時間</p>
+        </div>
+        <div id="end">
+            <p>退勤時間</p>
+        </div>
+        <div id="work">
+            <p>労働時間</p>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
