@@ -3,22 +3,31 @@ const app = express();
 const port = 3333;
 const path = require('path');
 const USERS = require('./usersData');
-const fs = require('fs');
+
+const {Pool} = require('pg');
+
+const pool = new Pool({
+    user: 'admin',
+    host: '127.0.0.1',
+    database: 'postgres_db',
+    password: 'admin',
+    port: 5432
+})
+
+app.get('/api/v1/user', async(req, res) => {
+    const {rows} = await pool.query('select * from timestamp')
+    res.send(rows);
+})
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../')))
-
-//静的ファイル表示
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'))
-})
+app.use(express.static(path.join(__dirname, '/public')))
 
 app.listen(port, () => {
     console.log(`Application is listening on http://localhost:${port}`)
 })
 
 //usersパスへのハンドラー登録
-app.route('/users')
+app.route('/api/v1/user/timestamp')
     .get((req, res) => {
         res.json(USERS)
     })

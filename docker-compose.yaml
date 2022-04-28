@@ -1,0 +1,25 @@
+version: '3'
+services:
+  node:
+    container_name: node_express
+    build: ./app
+    volumes:
+      - ./app:/app
+    tty: true
+    ports:
+      - 3333:3333
+
+  postgres:
+    build: ./initdb
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: postgres_db
+    volumes:
+      - db_data:/var/lib/posrgresql/data
+      - ./initdb:/docker-entrypoint-initdb.d
+
+volumes:
+  db_data: {}
