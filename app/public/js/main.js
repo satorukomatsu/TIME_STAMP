@@ -15,7 +15,7 @@ const currentTimeStamp = () => {
   const currentTime = document.getElementById('current_time');
   const date = new Date();
 
-  today = date.toLocaleDateString()
+  today = date.toDateString()
   currentDate.innerHTML = today;
   currentTime.innerHTML = date.toLocaleTimeString();
 }
@@ -87,7 +87,7 @@ const workTime = () => {
 
 //サーバーへのPOSTメソッド
 const fetchTime = async (date, begin, end, work) => {
-  const path = '/users'
+  const path = '/api/v1/user/timestamp'
   const data = {
     date: date,
     timeBegin: begin,
